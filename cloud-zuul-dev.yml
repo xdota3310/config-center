@@ -76,18 +76,6 @@ zuul:
         OkToRetryOnAllOperations: false
         ConnectTimeout: 10000
         ReadTimeout: 10000
-    tpc-route:
-      path: /tpc/**
-      sensitiveHeaders:
-      service-id: paascloud-provider-tpc
-      ribbon:
-        eager-load:
-          enabled: true
-        MaxAutoRetries: 1
-        MaxAutoRetriesNextServer: 2
-        OkToRetryOnAllOperations: false
-        ConnectTimeout: 10000
-        ReadTimeout: 10000
   add-proxy-headers: true
   add-host-header: true
 
