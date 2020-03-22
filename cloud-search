@@ -1,0 +1,31 @@
+server:
+  port: 6612
+
+spring:
+  application:
+    name: search
+  datasource:
+    username: root
+    password: Admin1234.
+    url: jdbc:mysql://47.101.35.22:3306/sjsite_search?useUnicode=true&characterEncoding=UTF-8
+#    driver-class-name: com.mysql.jdbc.Driver
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.cloud.client.ip-address}:6601/eureka/
+    registry-fetch-interval-seconds: 5
+    healthcheck:
+      enabled: true
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  #  type-aliases-package: com.lr.blog.article.model.DO
+  
+logging:
+  config: classpath:log/logback-prod.xml
